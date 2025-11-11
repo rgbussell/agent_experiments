@@ -1,37 +1,44 @@
 # agent_experiments
-Some basic experiments buillding LLM based agents
+## Projects with LLM-based Agents
 
-# Gemmini agents
-Launch the adk webserver
->> adk web
-* This starts a local web server
-* Working directory should be above the agents directory
-* Each directory in the cwd appears as an "agent" lists in the browser
+### Gemini Agents
 
-Agent filesystem setup
-cwd_for_adk_web
-|->agent1
-        |->.env (API keys)
-        |->agent.py (agent definition)
-|->agent2
-        |->.env
-        |->agent.py
+#### Launch the ADK Web Server
+- Provides a localhost:8000 UI by default
+- Launch the command at top of the agents directories
+```bash
+adk web
+```
 
+- Starts a local web server
+- Working directory should be above the agents directory
+- Each directory in the current working directory appears as an "agent" in the browser
 
-# Function calls
-Prompt the caller agent with the function name.
-Include type hints to define the funtion (maybe helps the caller)
-Provide the function objects as a tool
-If the tool is an agent, provide it as AgentTool(agent=agent_object)
+#### Agent Filesystem Setup
+```
+cwd_for_adk_web/
+├── agent1/
+│   ├── .env (API keys)
+│   └── agent.py (agent definition)
+└── agent2/
+        ├── .env
+        └── agent.py
+```
 
-# adk web
-The web interface provides a UI for prompting the root agent
-The web interface displays
-* a trace with invocations and calls
-* and events list which lists with graphical architecture of the 
-    agents involved in the event and details of each of the
-    calls and actions
-* states
-* artifacts
-* session id
-* Eval
+### Function Calls
+
+- Prompt the caller agent with the function name
+- Include type hints to define the function (may help the caller)
+- Provide the function objects as a tool
+- If the tool is an agent, provide it as `AgentTool(agent=agent_object)`
+
+### ADK Web Interface
+
+The web interface provides a UI for prompting the root agent and displays:
+
+- **Trace**: Invocations and calls
+- **Events List**: Graphical architecture of agents involved, details of calls and actions
+- **States**
+- **Artifacts**
+- **Session ID**
+- **Eval**
